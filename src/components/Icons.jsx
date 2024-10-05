@@ -14,3 +14,7 @@ export const InfoIcon = (props) => (
     <Feather name="info" size={24} color="black" {...props}/>
 );
 
+
+export const ArrowBack = (props) => (
+    <AntDesign name="arrowleft" size={24} color="black" {...props}/>
+)

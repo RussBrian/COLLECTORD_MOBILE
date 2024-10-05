@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from "react-native"
+import { Text } from "react-native"
 import { BaseScreen } from "../components/BaseScreen"
 
 const MainScreen = () => {

@@ -1,21 +1,34 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { Stack } from "expo-router";
 import EntryScreen from "../screens/EntryScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import MainScreen from "../screens/MainScreen";
 import RegisterScren from "../screens/RegisterScreen";
+import TabNavigation from "./tab.navegation";
+import { Pressable, Text } from "react-native";
+import { ArrowBack } from "../components/Icons";
+import { useNavigation } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
 
+    const navigator = useNavigation();
+
     return (
         <Stack.Navigator initialRouteName="EntryScreen" screenOptions={{
-            headerShown:false
-        }}> 
-            <Stack.Screen name="EntryScreen" component={EntryScreen}/>
-            <Stack.Screen name="HomeSc" component={MainScreen}/>
-            <Stack.Screen name="RegisterSc" component={RegisterScren}/>
+            headerShown: true,
+            headerTitle: ""
+        }}>
+            <Stack.Screen name="EntryScreen" component={EntryScreen} options={{
+                headerShown: false
+            }} />
+            <Stack.Screen name="TabNav" component={TabNavigation} options={{
+                headerShown: false
+            }} />
+            <Stack.Screen name="RegisterSc" component={RegisterScren} options={{
+                headerLeft: () =>
+                    <Pressable onPress={() => navigator.navigate("EntryScreen")}>
+                        <ArrowBack />
+                    </Pressable>
+            }} />
         </Stack.Navigator>
     )
 }

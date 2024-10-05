@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MainScreen from "../screens/MainScreen";
 import BookScreen from "../screens/BookScreen";
 import InfoScreen from "../screens/InfoScreen"
-import EntryScreen from "../screens/EntryScreen";
 import { HomeIcon, BookIcon, InfoIcon } from "../components/Icons";
 
 const Tab = createBottomTabNavigator();
@@ -11,7 +10,7 @@ const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
   return (
     <Tab.Navigator
-    initialRouteName="EntrySc"
+    initialRouteName="HomeSc"
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
@@ -28,12 +27,6 @@ const TabNavigation = () => {
         },
       }}
     >
-
-      <Tab.Screen
-        component={EntryScreen}
-        name="EntrySc"
-        options={{tabBarStyle:{display:'none'}}}
-      />
 
       <Tab.Screen
         component={MainScreen}
