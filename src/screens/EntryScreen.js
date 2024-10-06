@@ -29,15 +29,15 @@ const EntryScreen = () => {
                 </View>
 
                 <View className="items-end mx-2">
-                    <Pressable>
+                    <Pressable onPress={() => navegator.navigate("ForgotPasswordSc")}>
                         <Text className="text-customBlueGreen text-base font-extrabold mt-4 mb-3 items-end ">Forgot your password?</Text>
                     </Pressable>
                 </View>
 
                 <View className="items-center">
-                    <View className="bg-customBlueGreen p-6 w-72 rounded-3xl">
+                    <View className="bg-customBlueGreen p-6 w-72 rounded-lg">
                         <TouchableOpacity onPress={() => navegator.navigate("TabNav")}>
-                            <Text className="text-center text-black font-extrabold text-base">Iniciar Sesion</Text>
+                            <Text className="text-center text-black font-extrabold text-base shadow-lg">Iniciar Sesion</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -46,7 +46,7 @@ const EntryScreen = () => {
                 <View style={{ flexDirection: "row", justifyContent: "center" }}>
                     <Text className="text-black text-base">New in the app?</Text>
                     <Pressable onPress={() => navegator.navigate("RegisterSc")}>
-                        <Text className="text-customBlueGreen font-bold text-base shadow-lg"> Register here!</Text>
+                        <Text className="text-customBlueGreen font-bold text-base"> Register here!</Text>
                     </Pressable>
                 </View>
 

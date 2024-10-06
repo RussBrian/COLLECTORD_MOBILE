@@ -1,5 +1,4 @@
 import AntDesign from '@expo/vector-icons/AntDesign';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import Feather from '@expo/vector-icons/Feather';
 
 export const BookIcon = (props) => {
@@ -17,4 +16,8 @@ export const InfoIcon = (props) => (
 
 export const ArrowBack = (props) => (
     <AntDesign name="arrowleft" size={24} color="black" {...props}/>
+)
+
+export const ArrowFoward = (props) => (
+    <AntDesign name="arrowright" size={24} color="black" {...props}/>
 )
