@@ -13,11 +13,14 @@ export const InfoIcon = (props) => (
     <Feather name="info" size={24} color="black" {...props}/>
 );
 
-
 export const ArrowBack = (props) => (
     <AntDesign name="arrowleft" size={24} color="black" {...props}/>
 )
 
 export const ArrowFoward = (props) => (
-    <AntDesign name="arrowright" size={24} color="black" {...props}/>
+    <AntDesign name="arrowright" size={24} color="white" {...props}/>
 )
+
+export const ArrowDown = (props) =>  {
+    return <AntDesign name="arrowdown" size={28} color="black" {...props}/>
+}

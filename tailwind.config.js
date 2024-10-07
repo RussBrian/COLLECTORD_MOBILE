@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       colors:{
         customBlueGreen:"#14A37B",
+        collectorGreen:"#515940",
+        InputCollector:"#EAEAEA",
+        TitleCollector:"#4F663F"
       }
     },
   },

@@ -1,13 +1,16 @@
-import { 
+import {
     Text,
-     Pressable, 
-     View, 
-     TouchableOpacity 
+    Pressable,
+    View
 } from "react-native";
 import { BaseScreen } from "../components/BaseScreen";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect } from "react";
 import { LoginInput } from "../components/Login/Inputs";
+import { ArrowDown } from "../components/Icons";
+import LoginButton from "../components/Login/Button";
+import { styles } from "../components/Login/ButtonStyle"
+
 
 const EntryScreen = () => {
 
@@ -20,36 +23,49 @@ const EntryScreen = () => {
         <BaseScreen>
             <View className="flex-1 justify-center mx-4 space-x-1 space-y-4">
 
-                <Text className="text-4xl text-customBlueGreen text-center font-extrabold">Login here</Text>
-                <Text className="text-xl font-bold text-center">Hey welcome back to Collector!</Text>
+                <Text className="text-4xl text-TitleCollector text-center font-extrabold">Inicia Sesión</Text>
+                <Text className="text-xl font-bold text-center">Bienvenido de vuelta a Collector!</Text>
 
                 <View className="items-center space-y-3">
-                    <LoginInput placeHolderName={"Email"}/>
-                    <LoginInput placeHolderName={"Password"}/>
+                    <LoginInput placeHolderName={"Email"} />
+                    <LoginInput placeHolderName={"Password"} />
                 </View>
 
                 <View className="items-end mx-2">
                     <Pressable onPress={() => navegator.navigate("ForgotPasswordSc")}>
-                        <Text className="text-customBlueGreen text-base font-extrabold mt-4 mb-3 items-end ">Forgot your password?</Text>
+                        <Text className="text-collectorGreen text-base font-extrabold mt-4 mb-3 items-end ">Olvidaste tu contraseña?</Text>
                     </Pressable>
                 </View>
 
                 <View className="items-center">
-                    <View className="bg-customBlueGreen p-6 w-72 rounded-lg">
-                        <TouchableOpacity onPress={() => navegator.navigate("TabNav")}>
-                            <Text className="text-center text-black font-extrabold text-base shadow-lg">Iniciar Sesion</Text>
-                        </TouchableOpacity>
+                    <LoginButton
+                        onPressed={() => navegator.navigate("TabNav")}
+                        TextInput={"Iniciar Sesion"}
+                        Ustyled={styles.button} />
+                </View>
+
+
+                <View className="items-center justify-center space-y-3">
+                    <Text className="text-black text-base w-40 text-center font-bold">No tienes cuenta? ¡Vamos registrate!</Text>
+
+                    <ArrowDown />
+
+                    <View style={{ flexDirection: "row", marginTop: 20 }}>
+
+                        <LoginButton
+                            onPressed={() => navegator.navigate("RegisterSc")}
+                            TextInput={"Personas"}
+                            Ustyled={styles.smallButton}
+                        />
+
+
+                        <LoginButton
+                            onPressed={() => navegator.navigate("RegisterSc")}
+                            TextInput={"Institución"}
+                            Ustyled={styles.smallButton}
+                        />
                     </View>
                 </View>
-
-
-                <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                    <Text className="text-black text-base">New in the app?</Text>
-                    <Pressable onPress={() => navegator.navigate("RegisterSc")}>
-                        <Text className="text-customBlueGreen font-bold text-base"> Register here!</Text>
-                    </Pressable>
-                </View>
-
             </View>
         </BaseScreen>
     );

@@ -1,11 +1,12 @@
 import EntryScreen from "../screens/EntryScreen";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import RegisterScren from "../screens/RegisterScreen";
+import RegisterScreen from "../screens/RegisterScreen";
 import TabNavigation from "./tab.navegation";
 import ForgotPasswordScreen from "../screens/ForgotPassworScreen";
-import { Pressable, Text } from "react-native";
+import ConfirmPasswordScreen from "../screens/ConfirmPasswordScreen";
+import { Pressable } from "react-native";
 import { ArrowBack } from "../components/Icons";
 import { useNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +19,7 @@ const StackNavigation = () => {
             headerShown: true,
             headerTitle: ""
         }}>
-            
+
             <Stack.Screen name="EntryScreen" component={EntryScreen} options={{
                 headerShown: false
             }} />
@@ -27,7 +28,7 @@ const StackNavigation = () => {
                 headerShown: false
             }} />
 
-            <Stack.Screen name="RegisterSc" component={RegisterScren} options={{
+            <Stack.Screen name="RegisterSc" component={RegisterScreen} options={{
                 headerLeft: () =>
                     <Pressable onPress={() => navigator.navigate("EntryScreen")}>
                         <ArrowBack />
@@ -35,7 +36,15 @@ const StackNavigation = () => {
             }} />
 
             <Stack.Screen name="ForgotPasswordSc" component={ForgotPasswordScreen} options={{
-                headerLeft: () => <Pressable onPress={() => navigator.navigate("EntryScreen")}>
+                headerLeft: () => 
+                <Pressable onPress={() => navigator.navigate("EntryScreen")}>
+                    <ArrowBack />
+                </Pressable>
+            }} />
+
+            <Stack.Screen name="ConfirmPasswordSc" component={ConfirmPasswordScreen} options={{
+                headerLeft: () => 
+                <Pressable onPress={() => navigator.navigate("RegisterSc")}>
                     <ArrowBack />
                 </Pressable>
             }} />
