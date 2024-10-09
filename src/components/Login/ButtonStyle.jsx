@@ -4,8 +4,17 @@ export const styles = StyleSheet.create({
 
     button: {
         backgroundColor: '#515940',
-        padding: 24,
+        padding: 15,
         width: 288,
+        borderRadius: 12,
+        borderWidth: 3,
+        borderColor: "#7D7E77"
+    },
+    buttonHome:{
+        marginTop:10,
+        backgroundColor: '#999999',
+        padding: 15,
+        width: 200,
         borderRadius: 12,
         borderWidth: 3,
         borderColor: "#7D7E77"

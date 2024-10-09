@@ -33,7 +33,7 @@ const EntryScreen = () => {
 
                 <View className="items-end mx-2">
                     <Pressable onPress={() => navegator.navigate("ForgotPasswordSc")}>
-                        <Text className="text-collectorGreen text-base font-extrabold mt-4 mb-3 items-end ">Olvidaste tu contraseña?</Text>
+                        <Text className="text-collectorGreen text-lg font-extrabold mt-4 mb-3 items-end ">Olvidaste tu contraseña?</Text>
                     </Pressable>
                 </View>
 
@@ -57,7 +57,6 @@ const EntryScreen = () => {
                             TextInput={"Personas"}
                             Ustyled={styles.smallButton}
                         />
-
 
                         <LoginButton
                             onPressed={() => navegator.navigate("RegisterSc")}

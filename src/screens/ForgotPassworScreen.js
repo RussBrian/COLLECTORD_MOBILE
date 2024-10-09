@@ -7,7 +7,7 @@ const ForgotPasswordScreen = () => {
     return (
         <View style={{ justifyContent: "center" }} className="flex-1 mx-4 space-x-1 space-y-4">
 
-            <Text className="text-4xl text-TitleCollector text-center font-extrabold">Restablece tu conttaseña</Text>
+            <Text className="text-4xl text-TitleCollector text-center font-extrabold">Restablece tu contraseña</Text>
             <Text className="text-2xl font-bold text-center">
                 No te preocupes.
                 Ingresa tu correo electrónico y te enviaremos

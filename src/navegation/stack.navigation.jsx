@@ -7,6 +7,7 @@ import { Pressable } from "react-native";
 import { ArrowBack } from "../components/Icons";
 import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import RegisterDetail from "../screens/RegisterDetail";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,7 +29,12 @@ const StackNavigation = () => {
                 headerShown: false
             }} />
 
+            <Stack.Screen name="RegisterDetailSc" component={RegisterDetail} options={{
+                headerShown: false
+            }} />
+
             <Stack.Screen name="RegisterSc" component={RegisterScreen} options={{
+                headerShown: false,
                 headerLeft: () =>
                     <Pressable onPress={() => navigator.navigate("EntryScreen")}>
                         <ArrowBack />
@@ -36,17 +42,14 @@ const StackNavigation = () => {
             }} />
 
             <Stack.Screen name="ForgotPasswordSc" component={ForgotPasswordScreen} options={{
-                headerLeft: () => 
-                <Pressable onPress={() => navigator.navigate("EntryScreen")}>
-                    <ArrowBack />
-                </Pressable>
+                headerLeft: () =>
+                    <Pressable onPress={() => navigator.navigate("EntryScreen")}>
+                        <ArrowBack />
+                    </Pressable>
             }} />
 
             <Stack.Screen name="ConfirmPasswordSc" component={ConfirmPasswordScreen} options={{
-                headerLeft: () => 
-                <Pressable onPress={() => navigator.navigate("RegisterSc")}>
-                    <ArrowBack />
-                </Pressable>
+                headerShown: false
             }} />
 
         </Stack.Navigator>
