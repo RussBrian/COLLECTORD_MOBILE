@@ -1,20 +1,19 @@
 import {
     View,
     Text,
-    Pressable
+    Pressable,
+    StyleSheet
 } from "react-native"
 import { BaseScreen } from "../components/BaseScreen"
-import { LoginInput } from "../components/Login/Inputs"
-import { ArrowFoward } from "../components/Icons"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { styles } from "../components/Login/ButtonStyle"
 import { ArrowBack } from "../components/Icons"
 import { useNavigation } from "@react-navigation/native"
+import { ImagePickerService } from "../services/GalleryService"
 import ProgessBar from "../components/Login/ProgressBar"
 import LoginButton from "../components/Login/Button"
 
-
-const ConfirmPasswordScreen = () => {
+const UploadImageScreen = () => {
 
     const navigator = useNavigation();
 
@@ -29,12 +28,12 @@ const ConfirmPasswordScreen = () => {
             }}>
 
                 <View className="items-center">
-                    <ProgessBar preogression={0.7} />
+                    <ProgessBar preogression={100} />
                 </View>
 
                 <View style={{ flexDirection: "row" }}>
                     <View className="mt-3">
-                        <Text className="text-slate-600 font-extrabold mx-4">Paso 3-4</Text>
+                        <Text className="text-slate-600 font-extrabold mx-4">Paso 4-4</Text>
                     </View>
                     <View className="mt-3 mx-20">
                         <Text className="text-collectorGreen text-xl text-start font-extrabold">Registrar persona</Text>
@@ -42,23 +41,24 @@ const ConfirmPasswordScreen = () => {
                 </View>
 
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
-                    <Pressable onPress={() => navigator.navigate("RegisterDetailSc")}>
+                    <Pressable onPress={() => navigator.navigate("ConfirmPasswordSc")}>
                         <ArrowBack />
                     </Pressable>
                     <Text className="mx-3 text-xl font-extrabold">Paso anterior</Text>
                 </View>
 
-                <View className="items-start space-y-10 mt-20">
-                    <Text className="text-TextCollector text-lg font-extrabold">Contraseña</Text>
-                    <LoginInput />
-                    <Text className="text-TextCollector text-lg font-extrabold">Confirmar contraseña</Text>
-                    <LoginInput />
+                <View className="items-center">
+
+                    <ImagePickerService />
+
+                    <Text className="text-collectorGreen text-xl font-extrabold">
+                        Puedes dar clic en el circulo para seleccionar
+                        una imagen o puedes dejar el avatar por defecto.</Text>
                 </View>
 
-
                 <View className="items-center mt-20 mb-2">
-                    <LoginButton onPressed={() => navigator.navigate("UploadImgSc")}
-                        TextInput={"Siguiente"} 
+                    <LoginButton
+                        TextInput={"Registrar"}
                         Ustyled={styles.button} />
 
                     <LoginButton onPressed={() => navigator.navigate("EntryScreen")}
@@ -71,4 +71,14 @@ const ConfirmPasswordScreen = () => {
     )
 }
 
-export default ConfirmPasswordScreen
+export default UploadImageScreen
+
+export const styled = StyleSheet.create({
+    image: {
+        marginTop: 50,
+        width: 200,
+        height: 200,
+        borderRadius: 100,
+        marginBottom: 50
+    },
+})

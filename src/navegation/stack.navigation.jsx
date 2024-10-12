@@ -8,6 +8,7 @@ import { ArrowBack } from "../components/Icons";
 import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import RegisterDetail from "../screens/RegisterDetail";
+import UploadImageScreen from "../screens/UploadImgScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,10 @@ const StackNavigation = () => {
             }} />
 
             <Stack.Screen name="TabNav" component={TabNavigation} options={{
+                headerShown: false
+            }} />
+
+            <Stack.Screen name="UploadImgSc" component={UploadImageScreen} options={{
                 headerShown: false
             }} />
 
