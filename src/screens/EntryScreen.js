@@ -29,11 +29,11 @@ const EntryScreen = () => {
             <View className="flex-1 justify-center mx-4 space-x-1 space-y-4">
 
                 <Text className="text-4xl text-TitleCollector text-center font-extrabold">Inicia Sesión</Text>
-                <Text className="text-xl font-bold text-center">Bienvenido de vuelta1q98r a Collector!</Text>
+                <Text className="text-xl font-bold text-center">Bienvenido a Collector, Regsitrate y únete a nuestra comunidad hoy!</Text>
 
                 <View className="items-center space-y-3">
-                    <LoginInput placeHolderName={"Email"} />
-                    <LoginInput placeHolderName={"Password"} />
+                    <LoginInput placeHolderName={"Correo"} />
+                    <LoginInput placeHolderName={"Contraseña"} />
                 </View>
 
                 <View className="items-end mx-2">

@@ -9,6 +9,7 @@ module.exports = {
       colors:{
         customBlueGreen:"#14A37B",
         collectorGreen:"#515940",
+        collectorLightGreen:"#7B885B",
         InputCollector:"#DADADA91",
         TitleCollector:"#4F663F",
         TextCollector:"#444A34"

@@ -15,6 +15,8 @@ const ProgessBar = ({preogression}) => {
         color="green" 
         animated="true" 
         borderColor='black'
+        borderRadius={30}
+        borderWidth={3}
         height={12} 
         animationType="spring"/>
     )

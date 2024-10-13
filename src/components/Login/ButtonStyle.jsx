@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     buttonHome:{
         marginTop:10,
         backgroundColor: '#999999',
-        padding: 15,
+        padding: 13,
         width: 200,
         borderRadius: 12,
         borderWidth: 3,

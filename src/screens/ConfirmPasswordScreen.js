@@ -49,20 +49,26 @@ const ConfirmPasswordScreen = () => {
                 </View>
 
                 <View className="items-start space-y-10 mt-20">
-                    <Text className="text-TextCollector text-lg font-extrabold">Contraseña</Text>
+                    <Text className="text-TextCollector text-lg font-extrabold">
+                        <Text className="text-red-600">*</Text> Contraseña</Text>
                     <LoginInput />
-                    <Text className="text-TextCollector text-lg font-extrabold">Confirmar contraseña</Text>
+                    <Text className="text-TextCollector text-lg font-extrabold">
+                        <Text className="text-red-600">*</Text> Confirmar contraseña</Text>
                     <LoginInput />
                 </View>
 
 
                 <View className="items-center mt-20 mb-2">
+
+                    <Text className="text-collectorLightGreen text-base font-extrabold mb-2">
+                        <Text className="text-red-600">*</Text> No debe incluir espacios</Text>
+
                     <LoginButton onPressed={() => navigator.navigate("UploadImgSc")}
-                        TextInput={"Siguiente"} 
+                        TextInput={"Siguiente"}
                         Ustyled={styles.button} />
 
                     <LoginButton onPressed={() => navigator.navigate("EntryScreen")}
-                        TextInput={"Volver al home"}
+                        TextInput={"Volver al inicio"}
                         Ustyled={styles.buttonHome} />
                 </View>
             </SafeAreaView>

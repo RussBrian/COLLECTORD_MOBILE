@@ -39,7 +39,7 @@ const RegisterDetail = () => {
                     </View>
                 </View>
 
-                
+
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
                     <Pressable onPress={() => navigator.navigate("RegisterSc")}>
                         <ArrowBack />
@@ -49,21 +49,27 @@ const RegisterDetail = () => {
 
 
                 <View className="items-start mt-10 space-y-5">
-                    <Text className="text-TextCollector text-lg font-extrabold">Identificacion</Text>
-                    <LoginInput/>
-                    <Text className="text-TextCollector text-lg font-extrabold">Telefono</Text>
-                    <LoginInput/>
-                    <Text className="text-TextCollector text-lg font-extrabold">Dirección</Text>
-                    <LoginInput/>
+                    <Text className="text-TextCollector text-lg font-extrabold">
+                        <Text className="text-red-600">*</Text> Identificacion</Text>
+                    <LoginInput />
+                    <Text className="text-TextCollector text-lg font-extrabold">
+                        <Text className="text-red-600">*</Text>Telefono</Text>
+                    <LoginInput />
+                    <Text className="text-TextCollector text-lg font-extrabold">
+                        <Text className="text-red-600">*</Text> Dirección</Text>
+                    <LoginInput />
                 </View>
 
-                <View className="items-center justify-end mt-20 space-y-4">
+                <View className="items-center justify-end mt-10 space-y-4">
+                    <Text className="text-collectorLightGreen text-base font-extrabold mb-2">
+                        <Text className="text-red-600">*</Text> No debe incluir espacios</Text>
+
                     <LoginButton onPressed={() => navigator.navigate("ConfirmPasswordSc")}
                         TextInput={"Siguiente"}
                         Ustyled={styles.button} />
 
                     <LoginButton onPressed={() => navigator.navigate("EntryScreen")}
-                        TextInput={"Volver al home"}
+                        TextInput={"Volver al inicio"}
                         Ustyled={styles.buttonHome} />
                 </View>
             </SafeAreaView>

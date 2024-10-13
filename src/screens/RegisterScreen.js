@@ -1,7 +1,6 @@
 import {
     View,
     Text,
-    TouchableOpacity,
     Pressable,
 } from "react-native"
 import { BaseScreen } from "../components/BaseScreen"
@@ -41,30 +40,43 @@ const RegisterScreen = () => {
                     </View>
                 </View>
 
+
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
                     <Pressable onPress={() => navigator.navigate("EntryScreen")}>
                         <ArrowBack />
                     </Pressable>
-                    <Text className="mx-3 text-xl font-extrabold">Log In</Text>
+                    <Text className="mx-3 text-xl font-extrabold">Inicio de sesion</Text>
                 </View>
 
 
-                <View className="items-start mt-10 space-y-5">
-                    <Text className="text-TextCollector text-lg font-extrabold">Nombre</Text>
+                <View className="items-start mt-8 space-y-4">
+                    <Text className="text-TextCollector text-lg font-extrabold">
+                        <Text className="text-red-600">*</Text> Nombre</Text>
                     <LoginInput />
-                    <Text className="text-TextCollector text-lg font-extrabold">Apellido</Text>
+                    <Text className="text-TextCollector text-lg font-extrabold">
+                        <Text className="text-red-600">*</Text> Apellido</Text>
                     <LoginInput />
-                    <Text className="text-TextCollector text-lg font-extrabold">Username</Text>
+                    <Text className="text-TextCollector text-lg font-extrabold">
+                        <Text className="text-red-600">*</Text> Nombre de usuario</Text>
                     <LoginInput />
                 </View>
 
-                <View className="items-center mt-20 space-y-4">
+                <View className="ms-1 mt-1">
+                    <Text className="text-collectorLightGreen text-base font-extrabold">No debe de iniciar con un numero</Text>
+                    <Text className="text-collectorLightGreen text-base font-extrabold">No debe incluir espacios</Text>
+                </View>
+
+                <View className="items-center mt-10 space-y-4">
+
+                    <Text className="text-collectorLightGreen text-base font-extrabold mb-2"> 
+                        <Text className="text-red-600">*</Text> No debe incluir espacios</Text>
+
                     <LoginButton onPressed={() => navigator.navigate("RegisterDetailSc")}
                         TextInput={"Siguiente"}
                         Ustyled={styles.button} />
 
                     <LoginButton onPressed={() => navigator.navigate("RegisterDetailSc")}
-                        TextInput={"Volver a home"}
+                        TextInput={"Volver a inicio"}
                         Ustyled={styles.buttonHome} />
                 </View>
             </SafeAreaView>
