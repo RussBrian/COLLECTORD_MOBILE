@@ -1,5 +1,5 @@
 import { Text } from "react-native"
-import { BaseScreen } from "../components/BaseScreen"
+import { BaseScreen } from "../components/Shared/BaseScreen"
 
 const MainScreen = () => {
     return (

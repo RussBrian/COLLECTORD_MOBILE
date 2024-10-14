@@ -4,14 +4,14 @@ import {
     Pressable,
     StyleSheet
 } from "react-native"
-import { BaseScreen } from "../components/BaseScreen"
+import { BaseScreen } from "../../components/Shared/BaseScreen"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { styles } from "../components/Login/ButtonStyle"
-import { ArrowBack } from "../components/Icons"
+import { styles } from "../../components/Login/ButtonStyle"
+import { ArrowBack } from "../../components/Shared/Icons"
 import { useNavigation } from "@react-navigation/native"
-import { ImagePickerService } from "../services/GalleryService"
-import ProgessBar from "../components/Login/ProgressBar"
-import LoginButton from "../components/Login/Button"
+import { ImagePickerService } from "../../services/GalleryService"
+import ProgessBar from "../../components/Login/ProgressBar"
+import LoginButton from "../../components/Login/Button"
 
 const UploadImageScreen = () => {
 

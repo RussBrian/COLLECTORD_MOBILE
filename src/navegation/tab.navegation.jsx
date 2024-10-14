@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MainScreen from "../screens/MainScreen";
 import BookScreen from "../screens/BookScreen";
 import InfoScreen from "../screens/InfoScreen"
-import { HomeIcon, BookIcon, InfoIcon } from "../components/Icons";
+import { HomeIcon, BookIcon, InfoIcon } from "../components/Shared/Icons";
 
 const Tab = createBottomTabNavigator();
 

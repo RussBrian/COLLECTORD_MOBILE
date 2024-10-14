@@ -14,7 +14,7 @@ export function ImagePickerService() {
     const [loading, SetLoading] = useState(true)
 
     const pickImage = async () => {
-        let result = await ImagePicker.launchCameraAsync({
+        let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowEditing: true,
             aspect: [4, 3],

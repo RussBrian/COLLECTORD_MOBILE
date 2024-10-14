@@ -3,17 +3,17 @@ import {
     Pressable,
     View
 } from "react-native";
-import { BaseScreen } from "../components/BaseScreen";
+import { BaseScreen } from "../../components/Shared/BaseScreen";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-import { LoginInput } from "../components/Login/Inputs";
-import { ArrowDown } from "../components/Icons";
-import LoginButton from "../components/Login/Button";
-import { styles } from "../components/Login/ButtonStyle"
+import { LoginInput } from "../../components/Login/Inputs";
+import { ArrowDown } from "../../components/Shared/Icons";
+import LoginButton from "../../components/Login/Button";
+import { styles } from "../../components/Login/ButtonStyle"
 
 
-const EntryScreen = () => {
-    
+const LoginScreen = () => {
+
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -64,7 +64,7 @@ const EntryScreen = () => {
                         />
 
                         <LoginButton
-                            onPressed={() => navegator.navigate("RegisterSc")}
+                            onPressed={() => navegator.navigate("RegisterInstitutionSc")}
                             TextInput={"Institución"}
                             Ustyled={styles.smallButton}
                         />
@@ -75,4 +75,4 @@ const EntryScreen = () => {
     );
 };
 
-export default EntryScreen;
+export default LoginScreen;

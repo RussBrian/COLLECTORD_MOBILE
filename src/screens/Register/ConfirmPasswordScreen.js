@@ -3,15 +3,15 @@ import {
     Text,
     Pressable
 } from "react-native"
-import { BaseScreen } from "../components/BaseScreen"
-import { LoginInput } from "../components/Login/Inputs"
-import { ArrowFoward } from "../components/Icons"
+import { BaseScreen } from "../../components/Shared/BaseScreen"
+import { LoginInput } from "../../components/Login/Inputs"
+import { ArrowFoward } from "../../components/Shared/Icons"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { styles } from "../components/Login/ButtonStyle"
-import { ArrowBack } from "../components/Icons"
+import { styles } from "../../components/Login/ButtonStyle"
+import { ArrowBack } from "../../components/Shared/Icons"
 import { useNavigation } from "@react-navigation/native"
-import ProgessBar from "../components/Login/ProgressBar"
-import LoginButton from "../components/Login/Button"
+import ProgessBar from "../../components/Login/ProgressBar"
+import LoginButton from "../../components/Login/Button"
 
 
 const ConfirmPasswordScreen = () => {

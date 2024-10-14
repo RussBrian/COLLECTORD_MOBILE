@@ -3,14 +3,14 @@ import {
     Text,
     Pressable,
 } from "react-native"
-import { BaseScreen } from "../components/BaseScreen"
-import { LoginInput } from "../components/Login/Inputs"
-import { styles } from "../components/Login/ButtonStyle"
+import { BaseScreen } from "../../components/Shared/BaseScreen"
+import { LoginInput } from "../../components/Login/Inputs"
+import { styles } from "../../components/Login/ButtonStyle"
 import { useNavigation } from "@react-navigation/native"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { ArrowBack } from "../components/Icons"
-import LoginButton from "../components/Login/Button"
-import ProgessBar from "../components/Login/ProgressBar"
+import { ArrowBack } from "../../components/Shared/Icons"
+import LoginButton from "../../components/Login/Button"
+import ProgessBar from "../../components/Login/ProgressBar"
 
 
 const RegisterScreen = () => {
@@ -42,7 +42,7 @@ const RegisterScreen = () => {
 
 
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
-                    <Pressable onPress={() => navigator.navigate("EntryScreen")}>
+                    <Pressable onPress={() => navigator.navigate("LoginSc")}>
                         <ArrowBack />
                     </Pressable>
                     <Text className="mx-3 text-xl font-extrabold">Inicio de sesion</Text>
@@ -75,7 +75,7 @@ const RegisterScreen = () => {
                         TextInput={"Siguiente"}
                         Ustyled={styles.button} />
 
-                    <LoginButton onPressed={() => navigator.navigate("RegisterDetailSc")}
+                    <LoginButton onPressed={() => navigator.navigate("LoginSc")}
                         TextInput={"Volver a inicio"}
                         Ustyled={styles.buttonHome} />
                 </View>

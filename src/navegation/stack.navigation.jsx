@@ -1,14 +1,18 @@
-import EntryScreen from "../screens/EntryScreen";
-import RegisterScreen from "../screens/RegisterScreen";
+import LoginScreen from "../screens/LogIn/LoginScreen";
+import RegisterScreen from "../screens/Register/RegisterScreen";
 import TabNavigation from "./tab.navegation";
 import ForgotPasswordScreen from "../screens/ForgotPassworScreen";
-import ConfirmPasswordScreen from "../screens/ConfirmPasswordScreen";
+import ConfirmPasswordScreen from "../screens/Register/ConfirmPasswordScreen";
+import RegisterInstitutionScreen from "../screens/Register/RegisterInstitutionScreen";
+import RegisterInsitutionDetail from "../screens/Register/RegisterInstitutionDetail";
+import RegisterDetail from "../screens/Register/RegisterDetail";
+import UploadImageScreen from "../screens/Register/UploadImgScreen";
 import { Pressable } from "react-native";
-import { ArrowBack } from "../components/Icons";
+import { ArrowBack } from "../components/Shared/Icons";
 import { useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import RegisterDetail from "../screens/RegisterDetail";
-import UploadImageScreen from "../screens/UploadImgScreen";
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -17,12 +21,13 @@ const StackNavigation = () => {
     const navigator = useNavigation();
 
     return (
-        <Stack.Navigator initialRouteName="EntryScreen" screenOptions={{
+
+        <Stack.Navigator initialRouteName="LoginSc" screenOptions={{
             headerShown: true,
             headerTitle: ""
         }}>
 
-            <Stack.Screen name="EntryScreen" component={EntryScreen} options={{
+            <Stack.Screen name="LoginSc" component={LoginScreen} options={{
                 headerShown: false
             }} />
 
@@ -35,6 +40,14 @@ const StackNavigation = () => {
             }} />
 
             <Stack.Screen name="RegisterDetailSc" component={RegisterDetail} options={{
+                headerShown: false
+            }} />
+
+            <Stack.Screen name="RegisterInstitutionSc" component={RegisterInstitutionScreen} options={{
+                headerShown: false
+            }} />
+
+            <Stack.Screen name="RegisterInsitutionDetailSc" component={RegisterInsitutionDetail} options={{
                 headerShown: false
             }} />
 
