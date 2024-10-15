@@ -5,24 +5,24 @@ import {
 } from "react-native";
 import { BaseScreen } from "../../components/Shared/BaseScreen";
 import { useNavigation } from "@react-navigation/native";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { LoginInput } from "../../components/Login/Inputs";
 import { ArrowDown } from "../../components/Shared/Icons";
 import LoginButton from "../../components/Login/Button";
 import { styles } from "../../components/Login/ButtonStyle"
-
+import { useForm, Controller } from "react-hook-form";
 
 const LoginScreen = () => {
-
-    const [formData, setFormData] = useState({
-        email: '',
-        password: ''
-    });
-
     const navegator = useNavigation();
+    const { control, handleSubmit } = useForm();
 
     useEffect(() => {
     }, [navegator]);
+
+    const onSubmit = (data) => {
+        console.log("Datos de formulario:", data)
+        navegator.navigate("TabNav")
+    }
 
     return (
         <BaseScreen>
@@ -32,8 +32,22 @@ const LoginScreen = () => {
                 <Text className="text-xl font-bold text-center">Bienvenido a Collector, Regsitrate y únete a nuestra comunidad hoy!</Text>
 
                 <View className="items-center space-y-3">
-                    <LoginInput placeHolderName={"Correo"} />
-                    <LoginInput placeHolderName={"Contraseña"} />
+                    <Controller
+                        name="email"
+                        control={control}
+                        defaultValue=""
+                        render={({ field: { onchange, value } }) => (
+                            <LoginInput placeHolderName={"Email"} onChangeText={onchange} value={value} />
+                        )} />
+
+                    <Controller
+                        name="constaseña"
+                        control={control}
+                        defaultValue=""
+                        render={({ field: { onchange, value } }) => (
+                            <LoginInput placeHolderName={"Contraseña"} onChangeText={onchange} value={value} />
+                        )}
+                    />
                 </View>
 
                 <View className="items-end mx-2">
@@ -44,7 +58,7 @@ const LoginScreen = () => {
 
                 <View className="items-center">
                     <LoginButton
-                        onPressed={() => navegator.navigate("TabNav")}
+                        onPressed={handleSubmit(onSubmit)}
                         TextInput={"Iniciar Sesion"}
                         Ustyled={styles.button} />
                 </View>
@@ -58,13 +72,13 @@ const LoginScreen = () => {
                     <View style={{ flexDirection: "row", marginTop: 20 }}>
 
                         <LoginButton
-                            onPressed={() => navegator.navigate("RegisterSc")}
+                            onPressed={handleSubmit(() => navegator.navigate("RegisterSc"))}
                             TextInput={"Personas"}
                             Ustyled={styles.smallButton}
                         />
 
                         <LoginButton
-                            onPressed={() => navegator.navigate("RegisterInstitutionSc")}
+                            onPressed={handleSubmit(() => navegator.navigate("RegisterInstitutionSc"))}
                             TextInput={"Institución"}
                             Ustyled={styles.smallButton}
                         />

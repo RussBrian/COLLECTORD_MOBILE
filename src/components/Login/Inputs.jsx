@@ -1,6 +1,6 @@
 import { View, TextInput } from "react-native"
 
-export function LoginInput({placeHolderName, value , children}){
+export function LoginInput({placeHolderName, value , children, onChange}){
     return (
         <View 
         className="bg-InputCollector 
@@ -14,7 +14,7 @@ export function LoginInput({placeHolderName, value , children}){
          placeholder={placeHolderName}
          placeholderTextColor={"black"}
          value={value}
-         onChange={value}
+         onChange={onChange}
          {...children}/>
     </View>
     )
