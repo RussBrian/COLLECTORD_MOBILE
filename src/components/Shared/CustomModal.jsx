@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, View, Text, Pressable, StyleSheet } from 'react-native';
 
-const CustomModal = ({children , Tittle, OpenButton}) => {
+const CustomModal = ({ children, Tittle, OpenButton }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -24,7 +24,7 @@ const CustomModal = ({children , Tittle, OpenButton}) => {
             <View>
               <Text className="text-black font-extrabold text-lg mt-3">{Tittle}</Text>
             </View>
-           {children}
+            {children}
           </View>
         </View>
       </Modal>
@@ -47,9 +47,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   showModalButton: {
-    backgroundColor: '#3b82f6', 
-    padding: 12, 
-    borderRadius: 12, 
+    backgroundColor: '#3b82f6',
+    padding: 12,
+    borderRadius: 12,
   },
   buttonTextBlack: {
     color: 'black',

@@ -12,7 +12,9 @@ module.exports = {
         collectorLightGreen:"#7B885B",
         InputCollector:"#DADADA91",
         TitleCollector:"#4F663F",
-        TextCollector:"#444A34"
+        TextCollector:"#444A34",
+        borderCollectorGreen:"#7B885B",
+        WhiteCards:"#D5D5D5"
       }
     },
   },

@@ -14,6 +14,7 @@ import LoginButton from "../../components/Login/Button"
 
 const RegisterInsitutionDetail = () => {
 
+    
     const navigator = useNavigation()
 
     return (
@@ -50,13 +51,13 @@ const RegisterInsitutionDetail = () => {
 
                 <View className="items-start mt-10 space-y-5">
                     <Text className="text-TextCollector text-lg font-extrabold">
-                        <Text className="text-red-600">*</Text>RNC</Text>
+                        <Text className="text-red-600">*</Text> RNC</Text>
                     <LoginInput />
                     <Text className="text-TextCollector text-lg font-extrabold">
-                        <Text className="text-red-600">*</Text>Telefono</Text>
+                        <Text className="text-red-600">*</Text> Telefono</Text>
                     <LoginInput />
                     <Text className="text-TextCollector text-lg font-extrabold">
-                        <Text className="text-red-600">*</Text>Dirección</Text>
+                        <Text className="text-red-600">*</Text> Dirección</Text>
                     <LoginInput />
                 </View>
 

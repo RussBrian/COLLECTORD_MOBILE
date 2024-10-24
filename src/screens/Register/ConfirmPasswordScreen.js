@@ -12,9 +12,18 @@ import { ArrowBack } from "../../components/Shared/Icons"
 import { useNavigation } from "@react-navigation/native"
 import ProgessBar from "../../components/Login/ProgressBar"
 import LoginButton from "../../components/Login/Button"
+import { useForm } from "react-hook-form"
 
 
 const ConfirmPasswordScreen = () => {
+
+    const { control, handleSubmit } = useForm()
+
+
+    const submit = (data) => {
+        console.log("Data submited", data)
+        navigator.navigate("UploadImgSc")
+    }
 
     const navigator = useNavigation();
 
@@ -51,10 +60,16 @@ const ConfirmPasswordScreen = () => {
                 <View className="items-start space-y-10 mt-20">
                     <Text className="text-TextCollector text-lg font-extrabold">
                         <Text className="text-red-600">*</Text> Contraseña</Text>
-                    <LoginInput />
+                    <LoginInput
+                        name={"Password"}
+                        control={control}
+                    />
                     <Text className="text-TextCollector text-lg font-extrabold">
                         <Text className="text-red-600">*</Text> Confirmar contraseña</Text>
-                    <LoginInput />
+                    <LoginInput
+                        name={"ConfirmPassword"}
+                        control={control}
+                    />
                 </View>
 
 
@@ -63,7 +78,7 @@ const ConfirmPasswordScreen = () => {
                     <Text className="text-collectorLightGreen text-base font-extrabold mb-2">
                         <Text className="text-red-600">*</Text> No debe incluir espacios</Text>
 
-                    <LoginButton onPressed={() => navigator.navigate("UploadImgSc")}
+                    <LoginButton onPressed={handleSubmit(submit)}
                         TextInput={"Siguiente"}
                         Ustyled={styles.button} />
 

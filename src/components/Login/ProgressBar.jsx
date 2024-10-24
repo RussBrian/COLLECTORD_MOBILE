@@ -13,7 +13,7 @@ const ProgessBar = ({preogression}) => {
         <Progress.Bar progress={preogression} 
         width={300}
         color="green" 
-        animated="true" 
+        animated={true} 
         borderColor='black'
         borderRadius={30}
         borderWidth={3}

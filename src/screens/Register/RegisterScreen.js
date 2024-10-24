@@ -9,11 +9,19 @@ import { styles } from "../../components/Login/ButtonStyle"
 import { useNavigation } from "@react-navigation/native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { ArrowBack } from "../../components/Shared/Icons"
+import { useForm } from "react-hook-form"
 import LoginButton from "../../components/Login/Button"
 import ProgessBar from "../../components/Login/ProgressBar"
 
 
 const RegisterScreen = () => {
+
+    const { control, handleSubmit } = useForm()
+
+    const submit = (data) => {
+        console.log("Data submited", data)
+        navigator.navigate("RegisterDetailSc")
+    }
 
     const navigator = useNavigation()
 
@@ -52,13 +60,20 @@ const RegisterScreen = () => {
                 <View className="items-start mt-8 space-y-4">
                     <Text className="text-TextCollector text-lg font-extrabold">
                         <Text className="text-red-600">*</Text> Nombre</Text>
-                    <LoginInput />
+                    <LoginInput
+                        name={"Name"}
+                        control={control}
+                    />
                     <Text className="text-TextCollector text-lg font-extrabold">
                         <Text className="text-red-600">*</Text> Apellido</Text>
-                    <LoginInput />
+                    <LoginInput
+                        name={"LastName"}
+                        control={control} />
                     <Text className="text-TextCollector text-lg font-extrabold">
                         <Text className="text-red-600">*</Text> Nombre de usuario</Text>
-                    <LoginInput />
+                    <LoginInput
+                        name={"UserName"}
+                        control={control} />
                 </View>
 
                 <View className="ms-1 mt-1">
@@ -68,10 +83,10 @@ const RegisterScreen = () => {
 
                 <View className="items-center mt-10 space-y-4">
 
-                    <Text className="text-collectorLightGreen text-base font-extrabold mb-2"> 
+                    <Text className="text-collectorLightGreen text-base font-extrabold mb-2">
                         <Text className="text-red-600">*</Text> No debe incluir espacios</Text>
 
-                    <LoginButton onPressed={() => navigator.navigate("RegisterDetailSc")}
+                    <LoginButton onPressed={handleSubmit(submit)}
                         TextInput={"Siguiente"}
                         Ustyled={styles.button} />
 

@@ -31,7 +31,7 @@ export function ImagePickerService() {
     }
         return (
             <View className="items-center">
-                {loading && <ActivityIndicator size="large" color="#0000ff" />}
+                {loading && <ActivityIndicator size="large" color="#0000ff"/>}
                 <Pressable onPress={pickImage}>
                     {image == null ? 
                     

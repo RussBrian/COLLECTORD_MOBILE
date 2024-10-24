@@ -9,13 +9,21 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import { useNavigation } from "@react-navigation/native"
 import { styles } from "../../components/Login/ButtonStyle"
 import { ArrowBack } from "../../components/Shared/Icons"
+import { useForm } from "react-hook-form"
 import ProgessBar from "../../components/Login/ProgressBar"
 import LoginButton from "../../components/Login/Button"
 
 const RegisterDetail = () => {
 
-    const navigator = useNavigation()
+    const { control, handleSubmit } = useForm()
 
+    const submit = (data) => {
+        console.log("Data submited", data)
+        navigator.navigate("ConfirmPasswordSc")
+    }
+
+    const navigator = useNavigation()
+    
     return (
         <BaseScreen children={
             <SafeAreaView style={{
@@ -50,21 +58,30 @@ const RegisterDetail = () => {
 
                 <View className="items-start mt-10 space-y-5">
                     <Text className="text-TextCollector text-lg font-extrabold">
-                        <Text className="text-red-600">*</Text>Correo electrónico</Text>
-                    <LoginInput />
+                        <Text className="text-red-600">*</Text> Correo electrónico</Text>
+                    <LoginInput 
+                    name={"Email"}
+                    control={control}
+                    />
                     <Text className="text-TextCollector text-lg font-extrabold">
-                        <Text className="text-red-600">*</Text>Identificacion</Text>
-                    <LoginInput />
+                        <Text className="text-red-600">*</Text> Identificacion</Text>
+                    <LoginInput 
+                    name={"Identification"}
+                    control={control}
+                     />
                     <Text className="text-TextCollector text-lg font-extrabold">
-                        <Text className="text-red-600">*</Text>Dirección</Text>
-                    <LoginInput />
+                        <Text className="text-red-600">*</Text> Dirección</Text>
+                    <LoginInput 
+                    name={"Address"}
+                    control={control}
+                     />
                 </View>
 
                 <View className="items-center justify-end mt-10 space-y-4">
                     <Text className="text-collectorLightGreen text-base font-extrabold mb-2">
                         <Text className="text-red-600">*</Text> No debe incluir espacios</Text>
 
-                    <LoginButton onPressed={() => navigator.navigate("ConfirmPasswordSc")}
+                    <LoginButton onPressed={handleSubmit(submit)}
                         TextInput={"Siguiente"}
                         Ustyled={styles.button} />
 

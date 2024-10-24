@@ -8,9 +8,10 @@ import { useNavigation } from "@react-navigation/native";
 import { useEffect } from "react";
 import { LoginInput } from "../../components/Login/Inputs";
 import { ArrowDown } from "../../components/Shared/Icons";
-import LoginButton from "../../components/Login/Button";
 import { styles } from "../../components/Login/ButtonStyle"
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { LogInService } from "../../services/LogInService";
+import LoginButton from "../../components/Login/Button";
 
 const LoginScreen = () => {
     const navegator = useNavigation();
@@ -21,7 +22,10 @@ const LoginScreen = () => {
 
     const onSubmit = (data) => {
         console.log("Datos de formulario:", data)
-        navegator.navigate("TabNav")
+        const response = LogInService(data.password, data.email);
+        {
+            response === 400 ? console.log("No pude iniciar sesion") : navegator.navigate("TabNav")
+        }
     }
 
     return (
@@ -29,25 +33,19 @@ const LoginScreen = () => {
             <View className="flex-1 justify-center mx-4 space-x-1 space-y-4">
 
                 <Text className="text-4xl text-TitleCollector text-center font-extrabold">Inicia Sesión</Text>
-                <Text className="text-xl font-bold text-center">Bienvenido a Collector, Regsitrate y únete a nuestra comunidad hoy!</Text>
+                <Text className="text-xl font-bold text-center">¡Bienvenido a CollectoRD! Si aún no tienes una cuenta, regístrate hoy y únete a nuestra comunidad para hacer una diferencia.</Text>
 
                 <View className="items-center space-y-3">
-                    <Controller
-                        name="email"
-                        control={control}
-                        defaultValue=""
-                        render={({ field: { onchange, value } }) => (
-                            <LoginInput placeHolderName={"Email"} onChangeText={onchange} value={value} />
-                        )} />
+                    <LoginInput
+                        placeHolderName={"Email"}
+                        name={"email"}
+                        control={control} />
 
-                    <Controller
-                        name="constaseña"
-                        control={control}
-                        defaultValue=""
-                        render={({ field: { onchange, value } }) => (
-                            <LoginInput placeHolderName={"Contraseña"} onChangeText={onchange} value={value} />
-                        )}
-                    />
+                    <LoginInput
+                        placeHolderName={"Contraseña"}
+                        name={"password"}
+                        secureTextEntry={true}
+                        control={control} />
                 </View>
 
                 <View className="items-end mx-2">
@@ -66,11 +64,8 @@ const LoginScreen = () => {
 
                 <View className="items-center justify-center space-y-3">
                     <Text className="text-black text-base w-40 text-center font-bold">No tienes cuenta? ¡Vamos registrate!</Text>
-
                     <ArrowDown />
-
                     <View style={{ flexDirection: "row", marginTop: 20 }}>
-
                         <LoginButton
                             onPressed={handleSubmit(() => navegator.navigate("RegisterSc"))}
                             TextInput={"Personas"}
