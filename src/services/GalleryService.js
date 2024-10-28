@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
         marginTop: 50,
         width: 200,
         height: 200,
-        borderRadius: 100,
+        borderRadius: 30,
         marginBottom: 50
     },
 })

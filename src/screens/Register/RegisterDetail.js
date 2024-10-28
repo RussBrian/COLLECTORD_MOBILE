@@ -85,7 +85,7 @@ const RegisterDetail = () => {
                         TextInput={"Siguiente"}
                         Ustyled={styles.button} />
 
-                    <LoginButton onPressed={() => navigator.navigate("EntryScreen")}
+                    <LoginButton onPressed={() => navigator.navigate("LoginSc")}
                         TextInput={"Volver al inicio"}
                         Ustyled={styles.buttonHome} />
                 </View>

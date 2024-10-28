@@ -51,7 +51,7 @@ const UploadImageScreen = () => {
 
                     <ImagePickerService />
 
-                    <Text className="text-collectorGreen text-lg font-extrabold">
+                    <Text className="text-collectorLightGreen text-lg font-extrabold">
                         Puedes dar clic en el circulo para seleccionar
                         una imagen o puedes dejar el avatar por defecto.</Text>
                 </View>
@@ -62,7 +62,7 @@ const UploadImageScreen = () => {
                         TextInput={"Registrar"}
                         Ustyled={styles.button} />
 
-                    <LoginButton onPressed={() => navigator.navigate("EntryScreen")}
+                    <LoginButton onPressed={() => navigator.navigate("LoginSc")}
                         TextInput={"Volver al inicio"}
                         Ustyled={styles.buttonHome} />
                 </View>

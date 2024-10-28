@@ -1,14 +1,15 @@
 import {
     FlatList,
-    View,
-    Text
+    Text,
+    Pressable
 } from "react-native"
 import { useEffect, useState } from "react";
-import { GetAllVolunteers } from "../components/Shared/volunteerjson";
-import { BaseScreen } from "../components/Shared/BaseScreen";
-import { AnimatedCard } from "../components/Shared/Cards";
+import { GetAllVolunteers } from "../../components/Shared/volunteerjson";
+import { BaseScreen } from "../../components/Shared/BaseScreen";
+import { AnimatedCard } from "../../components/Shared/Cards";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ActivityIndicator } from "react-native";
+import { useNavigation } from "expo-router";
 
 const MainScreen = () => {
 
@@ -31,6 +32,8 @@ const MainScreen = () => {
                 paddingLeft: 10,
                 paddingRight: 10
             }}>
+
+                <Text className="font-extrabold text-2xl text-black text-center mb-4">Voluntariados</Text>
 
                 {volunteer.length === 0 ? (
                     <ActivityIndicator color={"#7B885B"} size={"large"} />

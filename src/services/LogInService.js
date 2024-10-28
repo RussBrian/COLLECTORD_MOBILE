@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export async function LogInService(password, email) {
-    
     try {
         console.log("Enviando datos de inicio de sesión:", password, email);
 

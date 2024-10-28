@@ -1,8 +1,8 @@
 import React from "react";
-import MainScreen from "../screens/MainScreen";
-import BookScreen from "../screens/BookScreen";
-import InfoScreen from "../screens/InfoScreen"
-import { HomeIcon, BookIcon, InfoIcon } from "../components/Shared/Icons";
+import MainScreen from "../screens/MainApp/MainScreen";
+import BookScreen from "../screens/MainApp/BookScreen";
+import ProfileScreen from "../screens/MainApp/ProfileScreen"
+import { HomeIcon, BookIcon, PersonIcon } from "../components/Shared/Icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
@@ -13,18 +13,19 @@ const TabNavigation = () => {
     initialRouteName="HomeSc"
       screenOptions={{
         headerShown: false,
-        tabBarShowLabel: false,
+        tabBarShowLabel: true,
         tabBarActiveTintColor: "green",
         tabBarStyle: {
           backgroundColor: "white",
           position: "absolute",
-          bottom: 20,
-          left: 10,
-          right: 10,
-          borderRadius: 40,
-          height: 55,
+          marginBottom:20,
+          right:10,
+          left:10,
+          borderRadius: 20,
+          height: 70,
           paddingBottom: 10
         },
+        tabBarInactiveTintColor:"black"
       }}
     >
 
@@ -32,6 +33,8 @@ const TabNavigation = () => {
         component={MainScreen}
         name="HomeSc"
         options={{
+          title:"Home",
+          tabBarLabel:"Home",
           tabBarIcon: ({ color }) => <HomeIcon color={color} />,
         }}
       />
@@ -40,15 +43,19 @@ const TabNavigation = () => {
         component={BookScreen}
         name="BookSc"
         options={{
+          title:"Books",
+          tabBarLabel:"Books",
           tabBarIcon: ({ color }) => <BookIcon color={color} />,
         }}
       />
 
       <Tab.Screen
-        component={InfoScreen}
+        component={ProfileScreen}
         name="InfoSc"
         options={{
-          tabBarIcon: ({ color }) => <InfoIcon color={color} />
+          title:"Profile",
+          tabBarLabel:"Profile",
+          tabBarIcon: ({ color }) => <PersonIcon color={color} />
         }} />
     </Tab.Navigator>
 

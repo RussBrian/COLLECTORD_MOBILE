@@ -57,13 +57,17 @@ const ConfirmPasswordScreen = () => {
                     <Text className="mx-3 text-xl font-extrabold">Paso anterior</Text>
                 </View>
 
-                <View className="items-start space-y-10 mt-20">
+                <View className="items-start space-y-5 mt-20">
                     <Text className="text-TextCollector text-lg font-extrabold">
-                        <Text className="text-red-600">*</Text> Contraseña</Text>
+                        <Text className="text-red-600">*</Text> Contraseña</Text>                   
                     <LoginInput
                         name={"Password"}
                         control={control}
                     />
+                    <Text className="text-normal font-extrabold text-collectorLightGreen"> La contraseña debe contener al menos:
+                        1 letra, 8 caracteres, 1 número y 1 carácter
+                        especial (“@”,”!”,”#”,”.”)</Text>
+
                     <Text className="text-TextCollector text-lg font-extrabold">
                         <Text className="text-red-600">*</Text> Confirmar contraseña</Text>
                     <LoginInput
@@ -82,7 +86,7 @@ const ConfirmPasswordScreen = () => {
                         TextInput={"Siguiente"}
                         Ustyled={styles.button} />
 
-                    <LoginButton onPressed={() => navigator.navigate("EntryScreen")}
+                    <LoginButton onPressed={() => navigator.navigate("LoginSc")}
                         TextInput={"Volver al inicio"}
                         Ustyled={styles.buttonHome} />
                 </View>

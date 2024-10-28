@@ -14,17 +14,17 @@ import { LogInService } from "../../services/LogInService";
 import LoginButton from "../../components/Login/Button";
 
 const LoginScreen = () => {
-    const navegator = useNavigation();
+    const navigator = useNavigation();
     const { control, handleSubmit } = useForm();
 
     useEffect(() => {
-    }, [navegator]);
+    }, [navigator]);
 
     const onSubmit = (data) => {
         console.log("Datos de formulario:", data)
         const response = LogInService(data.password, data.email);
         {
-            response === 400 ? console.log("No pude iniciar sesion") : navegator.navigate("TabNav")
+            response === 400 ? console.log("No pude iniciar sesion") : navigator.navigate("TabNav")
         }
     }
 
@@ -36,6 +36,7 @@ const LoginScreen = () => {
                 <Text className="text-xl font-bold text-center">¡Bienvenido a CollectoRD! Si aún no tienes una cuenta, regístrate hoy y únete a nuestra comunidad para hacer una diferencia.</Text>
 
                 <View className="items-center space-y-3">
+                    
                     <LoginInput
                         placeHolderName={"Email"}
                         name={"email"}
@@ -49,7 +50,7 @@ const LoginScreen = () => {
                 </View>
 
                 <View className="items-end mx-2">
-                    <Pressable onPress={() => navegator.navigate("ForgotPasswordSc")}>
+                    <Pressable onPress={() => navigator.navigate("ForgotPasswordSc")}>
                         <Text className="text-collectorGreen text-lg font-extrabold mt-4 mb-3 items-end ">Olvidaste tu contraseña?</Text>
                     </Pressable>
                 </View>
@@ -66,14 +67,15 @@ const LoginScreen = () => {
                     <Text className="text-black text-base w-40 text-center font-bold">No tienes cuenta? ¡Vamos registrate!</Text>
                     <ArrowDown />
                     <View style={{ flexDirection: "row", marginTop: 20 }}>
+                        
                         <LoginButton
-                            onPressed={handleSubmit(() => navegator.navigate("RegisterSc"))}
+                            onPressed={handleSubmit(() => navigator.navigate("RegisterSc"))}
                             TextInput={"Personas"}
                             Ustyled={styles.smallButton}
                         />
 
                         <LoginButton
-                            onPressed={handleSubmit(() => navegator.navigate("RegisterInstitutionSc"))}
+                            onPressed={handleSubmit(() => navigator.navigate("RegisterInstitutionSc"))}
                             TextInput={"Institución"}
                             Ustyled={styles.smallButton}
                         />
