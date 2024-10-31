@@ -4,71 +4,69 @@ import {
     Pressable,
     StyleSheet
 } from "react-native"
-import { BaseScreen } from "../../components/Shared/BaseScreen"
-import { SafeAreaView } from "react-native-safe-area-context"
-import { styles } from "../../components/Login/ButtonStyle"
+
+import { buttonStyles } from "../../components/Login/ButtonStyle"
 import { ArrowBack } from "../../components/Shared/Icons"
 import { useNavigation } from "@react-navigation/native"
 import { ImagePickerService } from "../../services/GalleryService"
-import ProgessBar from "../../components/Login/ProgressBar"
-import LoginButton from "../../components/Login/Button"
+import ModButtonOpacity from "../../components/Login/ModButtonOpacity"
+import { useScrollToTop } from "@react-navigation/native";
+import { useRef } from "react"
+import RegisterBaseSc from "../../components/Register/RegisterBaseSc"
 
-const UploadImageScreen = () => {
+const UploadImageScreen = ({route}) => {
 
+    const {IsButtonInsitutionPress} = route.params
     const navigator = useNavigation();
+    const ref = useRef(null);
+    useScrollToTop(ref);
 
     return (
-        <BaseScreen children={
-            <SafeAreaView style={{
-                flex: 1,
-                paddingBottom: 5,
-                marginRight: 20,
-                marginTop: 50,
-                marginLeft: 20
-            }}>
+        <RegisterBaseSc BarPregression={1} children={
+            <>
 
-                <View className="items-center">
-                    <ProgessBar preogression={100} />
+            <View style={{ flexDirection: "row" }}>
+                <View className="mt-3">
+                    <Text className="text-slate-600 font-extrabold mx-4">Paso 4-4</Text>
                 </View>
-
-                <View style={{ flexDirection: "row" }}>
-                    <View className="mt-3">
-                        <Text className="text-slate-600 font-extrabold mx-4">Paso 4-4</Text>
-                    </View>
-                    <View className="mt-3 mx-20">
-                        <Text className="text-collectorGreen text-xl text-start font-extrabold">Registrar persona</Text>
-                    </View>
+                <View className="mt-3 mx-20">
+                    {
+                        IsButtonInsitutionPress == false ? <Text className="text-collectorGreen text-xl text-start font-extrabold">Registrar persona</Text>
+                        : <Text className="text-collectorGreen text-xl text-start font-extrabold">Registrar Institución</Text>
+                    }
                 </View>
+            </View>
 
-                <View style={{ flexDirection: "row", marginTop: 12 }}>
-                    <Pressable onPress={() => navigator.navigate("ConfirmPasswordSc")}>
-                        <ArrowBack />
-                    </Pressable>
-                    <Text className="mx-3 text-xl font-extrabold">Paso anterior</Text>
-                </View>
+            <View style={{ flexDirection: "row", marginTop: 12 }}>
+                <Pressable onPress={() => navigator.navigate("ConfirmPasswordSc",{IsButtonInsitutionPress})}>
+                    <ArrowBack />
+                </Pressable>
+                <Text className="mx-3 text-xl font-extrabold">Paso anterior</Text>
+            </View>
 
-                <View className="items-center">
+            <View className="items-center">
+                <ImagePickerService />
+                <Text className="text-collectorLightGreen text-lg font-extrabold">
+                    Puedes dar clic en el circulo para seleccionar
+                    una imagen o puedes dejar el avatar por defecto.</Text>
+            </View>
 
-                    <ImagePickerService />
+            <View className="items-center mt-14 mb-2">
+                <ModButtonOpacity
+                    onPressed={() => navigator.navigate("LoginSc")}
+                    TextInput={"Registrar"}
+                    Ustyled={buttonStyles.button}
+                    TextStyle={buttonStyles.textButton} />
 
-                    <Text className="text-collectorLightGreen text-lg font-extrabold">
-                        Puedes dar clic en el circulo para seleccionar
-                        una imagen o puedes dejar el avatar por defecto.</Text>
-                </View>
-
-                <View className="items-center mt-20 mb-2">
-                    
-                    <LoginButton
-                        TextInput={"Registrar"}
-                        Ustyled={styles.button} />
-
-                    <LoginButton onPressed={() => navigator.navigate("LoginSc")}
-                        TextInput={"Volver al inicio"}
-                        Ustyled={styles.buttonHome} />
-                </View>
-            </SafeAreaView>
+                <ModButtonOpacity 
+                    onPressed={() => navigator.navigate("LoginSc")}
+                    TextInput={"Volver al inicio"}
+                    Ustyled={buttonStyles.buttonHome}
+                    TextStyle={buttonStyles.textTransparentButton} />
+            </View>
+            </>
         }>
-        </BaseScreen>
+        </RegisterBaseSc>
     )
 }
 

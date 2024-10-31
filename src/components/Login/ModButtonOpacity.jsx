@@ -1,6 +1,6 @@
 import { Pressable, Text, StyleSheet } from "react-native"
 
-const LoginButton = ({ onPressed, TextInput, Ustyled}) => {
+const ModButtonOpacity = ({ onPressed, TextInput, Ustyled, TextStyle}) => {
     return (
         <Pressable
             style={({ pressed }) => [
@@ -9,10 +9,10 @@ const LoginButton = ({ onPressed, TextInput, Ustyled}) => {
             ]}
             onPress={onPressed}
         >
-            <Text className="text-white font-bold text-base text-center">{TextInput}</Text>
+            <Text style={TextStyle}>{TextInput}</Text>
         </Pressable>
     )
-}
-export default LoginButton;
+} 
+export default ModButtonOpacity;
 
 

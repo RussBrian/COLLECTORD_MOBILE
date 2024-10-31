@@ -30,7 +30,7 @@ export function GetAllVolunteers() {
       "Details": "Plantación de árboles nativos.",
       "IsPrivate": true,
       "VolunteerDate": "2024-11-01T08:30:00",
-      "Image": "https://example.com/images/reporte3.jpg"
+      "Image": "https://simcorner.com/cdn/shop/articles/national.jpg?v=1685513251"
     },
     {
       "FireBaseCode": "JKL012",

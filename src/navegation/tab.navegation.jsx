@@ -4,6 +4,7 @@ import BookScreen from "../screens/MainApp/BookScreen";
 import ProfileScreen from "../screens/MainApp/ProfileScreen"
 import { HomeIcon, BookIcon, PersonIcon } from "../components/Shared/Icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { View, Text} from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +26,7 @@ const TabNavigation = () => {
           height: 70,
           paddingBottom: 10
         },
-        tabBarInactiveTintColor:"black"
+        tabBarInactiveTintColor:"gray"
       }}
     >
 
@@ -44,8 +45,23 @@ const TabNavigation = () => {
         name="BookSc"
         options={{
           title:"Books",
-          tabBarLabel:"Books",
-          tabBarIcon: ({ color }) => <BookIcon color={color} />,
+          tabBarLabel:"Reportes",
+          tabBarIcon: ({ color }) => 
+            <View
+          style={{
+            width: 70,
+            height: 70,
+            backgroundColor: '#7B885B',
+            borderRadius: 40,
+            justifyContent: 'center',
+            alignItems: 'center',
+            shadowColor:"#000",
+            marginBottom: 25,
+            shadowRadius:10
+          }}
+        >
+          <Text className="text-2xl text-white font-extrabold">+</Text>
+        </View>,
         }}
       />
 

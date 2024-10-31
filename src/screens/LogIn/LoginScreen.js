@@ -5,27 +5,45 @@ import {
 } from "react-native";
 import { BaseScreen } from "../../components/Shared/BaseScreen";
 import { useNavigation } from "@react-navigation/native";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { LoginInput } from "../../components/Login/Inputs";
 import { ArrowDown } from "../../components/Shared/Icons";
-import { styles } from "../../components/Login/ButtonStyle"
+import { buttonStyles } from "../../components/Login/ButtonStyle"
 import { useForm } from "react-hook-form";
 import { LogInService } from "../../services/LogInService";
-import LoginButton from "../../components/Login/Button";
+import ModButtonOpacity from "../../components/Login/ModButtonOpacity";
 
 const LoginScreen = () => {
+
     const navigator = useNavigation();
     const { control, handleSubmit } = useForm();
+    const [IsButtonInsitutionPress, setButtonInsitution] = useState(false);
 
     useEffect(() => {
     }, [navigator]);
 
+    const NavigateTo = () => { 
+        setButtonInsitution(true);
+        navigator.navigate("RegisterSc", {
+            IsButtonInsitutionPress: true
+        });
+    }
+    
+    const NavigateToPerson = () => { 
+        setButtonInsitution(false);
+        navigator.navigate("RegisterSc", {
+            IsButtonInsitutionPress: false
+        });
+    }
+
     const onSubmit = (data) => {
         console.log("Datos de formulario:", data)
-        const response = LogInService(data.password, data.email);
-        {
-            response === 400 ? console.log("No pude iniciar sesion") : navigator.navigate("TabNav")
-        }
+        // const response = LogInService(data.password, data.email);
+        // {
+        //     response === 400 ? console.log("No pude iniciar sesion") : navigator.navigate("TabNav")
+        // }
+
+        navigator.navigate("TabNav")
     }
 
     return (
@@ -56,10 +74,11 @@ const LoginScreen = () => {
                 </View>
 
                 <View className="items-center">
-                    <LoginButton
+                    <ModButtonOpacity
                         onPressed={handleSubmit(onSubmit)}
                         TextInput={"Iniciar Sesion"}
-                        Ustyled={styles.button} />
+                        Ustyled={buttonStyles.button}
+                        TextStyle={buttonStyles.textButton} />
                 </View>
 
 
@@ -68,16 +87,18 @@ const LoginScreen = () => {
                     <ArrowDown />
                     <View style={{ flexDirection: "row", marginTop: 20 }}>
                         
-                        <LoginButton
-                            onPressed={handleSubmit(() => navigator.navigate("RegisterSc"))}
+                        <ModButtonOpacity
+                            onPressed={handleSubmit(() => NavigateToPerson())}
                             TextInput={"Personas"}
-                            Ustyled={styles.smallButton}
+                            Ustyled={buttonStyles.smallButton}
+                            TextStyle={buttonStyles.textButton}
                         />
 
-                        <LoginButton
-                            onPressed={handleSubmit(() => navigator.navigate("RegisterInstitutionSc"))}
-                            TextInput={"Institución"}
-                            Ustyled={styles.smallButton}
+                        <ModButtonOpacity
+                            onPressed={handleSubmit(() => NavigateTo())}
+                            TextInput={"Insitutcion"}
+                            Ustyled={buttonStyles.smallButton}
+                            TextStyle={buttonStyles.textButton}
                         />
                     </View>
                 </View>

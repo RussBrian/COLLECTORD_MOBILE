@@ -7,49 +7,44 @@ import { LoginInput } from "../../components/Login/Inputs"
 import { buttonStyles } from "../../components/Login/ButtonStyle"
 import { ArrowBack } from "../../components/Shared/Icons"
 import { useNavigation } from "@react-navigation/native"
-import LoginButton from "../../components/Login/ModButtonOpacity"
 import { useForm } from "react-hook-form"
+import ModButtonOpacity from "../../components/Login/ModButtonOpacity"
 import RegisterBaseSc from "../../components/Register/RegisterBaseSc"
 
 
-const ConfirmPasswordScreen = ({route}) => {
+const ResetPassword = () => {
 
     const { control, handleSubmit } = useForm()
-    const { IsButtonInsitutionPress } = route.params
 
     const submit = (data) => {
         console.log("Data submited", data)
-        navigator.navigate("UploadImgSc",{IsButtonInsitutionPress})
     }
 
     const navigator = useNavigation();
 
     return (
-        <RegisterBaseSc BarPregression={0.6} children={
+        <RegisterBaseSc BarPregression={1} children={
             <>
                 <View style={{ flexDirection: "row" }}>
                     <View className="mt-3">
-                        <Text className="text-slate-600 font-extrabold mx-4">Paso 3-4</Text>
+                        <Text className="text-slate-600 font-extrabold mx-4">Paso 3-3</Text>
                     </View>
                     <View className="mt-3 mx-20">
-                        {IsButtonInsitutionPress == false ?                         
-                        <Text className="text-collectorGreen text-xl text-start font-extrabold">Registrar persona</Text> 
-                        :
-                        <Text className="text-collectorGreen text-xl text-start font-extrabold">Registrar Institución</Text> 
-                        }
+                        <Text className="text-collectorGreen text-xl text-start font-extrabold">Restablecer contraseña</Text>
                     </View>
                 </View>
 
                 <View style={{ flexDirection: "row", marginTop: 12 }}>
-                    <Pressable onPress={() => navigator.navigate("RegisterDetailSc",{IsButtonInsitutionPress})}>
+                    <Pressable onPress={() => navigator.navigate("InsertCodeSc")}>
                         <ArrowBack />
                     </Pressable>
                     <Text className="mx-3 text-xl font-extrabold">Paso anterior</Text>
                 </View>
 
-                <View className="items-start space-y-5 mt-20">
+                <View className="items-start space-y-5 mt-10">
+
                     <Text className="text-TextCollector text-lg font-extrabold">
-                        <Text className="text-red-600">*</Text> Contraseña</Text>
+                        <Text className="text-red-600">*</Text> Nueva Contraseña</Text>
                     <LoginInput
                         name={"Password"}
                         control={control}
@@ -67,16 +62,18 @@ const ConfirmPasswordScreen = ({route}) => {
                 </View>
 
 
-                <View className="items-center mt-10">
+                <View className="items-center mt-3">
                     <Text className="text-collectorLightGreen text-base font-extrabold mb-2">
                         <Text className="text-red-600">*</Text> No debe incluir espacios</Text>
 
-                    <LoginButton onPressed={handleSubmit(submit)}
-                        TextInput={"Siguiente"}
-                        Ustyled={buttonStyles.button}
-                        TextStyle={buttonStyles.textButton} />
+                    <ModButtonOpacity   
+                        onPressed={handleSubmit(submit)}
+                        TextInput={"Cambiar contraseña"}
+                        Ustyled={buttonStyles.button} 
+                        TextStyle={buttonStyles.textButton}/>
 
-                    <LoginButton onPressed={() => navigator.navigate("LoginSc")}
+                    <ModButtonOpacity 
+                        onPressed={() => navigator.navigate("LoginSc")}
                         TextInput={"Volver al inicio"}
                         Ustyled={buttonStyles.buttonHome}
                         TextStyle={buttonStyles.textTransparentButton} />
@@ -87,4 +84,4 @@ const ConfirmPasswordScreen = ({route}) => {
     )
 }
 
-export default ConfirmPasswordScreen
+export default ResetPassword

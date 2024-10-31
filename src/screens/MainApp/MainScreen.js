@@ -9,11 +9,15 @@ import { BaseScreen } from "../../components/Shared/BaseScreen";
 import { AnimatedCard } from "../../components/Shared/Cards";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ActivityIndicator } from "react-native";
-import { useNavigation } from "expo-router";
+import { useScrollToTop } from "@react-navigation/native";
+import { useRef } from "react"
 
 const MainScreen = () => {
-
+    
     const [volunteer, setVolunteers] = useState([])
+    const ref = useRef(null);
+    useScrollToTop(ref)
+
 
     function RedenerizeVolunnteers() {
         const volunteersData = GetAllVolunteers()
@@ -27,18 +31,20 @@ const MainScreen = () => {
     return (
         <BaseScreen children={
             <SafeAreaView style={{
-                marginTop: 30,
+                paddingTop: 20,
                 marginBottom: 5,
                 paddingLeft: 10,
                 paddingRight: 10
             }}>
 
-                <Text className="font-extrabold text-2xl text-black text-center mb-4">Voluntariados</Text>
+                <Text className="text-black text-xl font-extrabold text-center mb-3">Voluntariados</Text>
 
                 {volunteer.length === 0 ? (
                     <ActivityIndicator color={"#7B885B"} size={"large"} />
                 ) : (
+                        
                     <FlatList
+                        ref={ref}
                         data={volunteer}
                         keyExtractor={(item) => item.FireBaseCode}
                         renderItem={({ item, index }) => (

@@ -3,11 +3,14 @@ import { BaseScreen } from "../../components/Shared/BaseScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ImagePickerService } from "../../services/GalleryService";
 import { LogOutIcon } from "../../components/Shared/Icons";
+import { useNavigation } from "@react-navigation/native";
 
 const ProfileScreen = () => {
+
+    const navigator = useNavigation()
+
     return (
         <BaseScreen>
-
                 <SafeAreaView style={{
                     flex: 1,
                     marginTop:15
@@ -16,7 +19,7 @@ const ProfileScreen = () => {
                     <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                         <Text className="text-2xl font-bold mx-8">Perfil</Text>
                         <View className="mt-1 mr-8">
-                            <Pressable>
+                            <Pressable onPress={() => navigator.navigate("LoginSc")}>
                                 <LogOutIcon />
                             </Pressable>
                         </View>

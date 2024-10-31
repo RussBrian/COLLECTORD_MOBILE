@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
+export const buttonStyles = StyleSheet.create({
 
     button: {
         backgroundColor: '#515940',
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     },
     buttonHome:{
         marginTop:10,
-        backgroundColor: '#999999',
+        backgroundColor:"transparent",
         padding: 13,
         width: 200,
         borderRadius: 12,
@@ -35,5 +35,17 @@ export const styles = StyleSheet.create({
         textShadowColor: 'rgba(0, 0, 0, 0.25)',
         textShadowOffset: { width: 0, height: 1 },
         textShadowRadius: 4,
+    },
+    textButton:{
+        fontWeight:"bold",
+        color:"white",
+        textAlign:"center",
+        fontSize:16
+    },
+    textTransparentButton:{
+        fontWeight:"bold",
+        color:"black",
+        textAlign:"center",
+        fontSize:16
     }
 });
