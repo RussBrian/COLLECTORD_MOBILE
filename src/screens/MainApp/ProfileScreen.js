@@ -2,25 +2,35 @@ import { Pressable, Text, View } from "react-native";
 import { BaseScreen } from "../../components/Shared/BaseScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ImagePickerService } from "../../services/GalleryService";
-import { LogOutIcon } from "../../components/Shared/Icons";
+import { EditProfile } from "../../components/Shared/Icons";
 import { useNavigation } from "@react-navigation/native";
+import { useAuthStore } from "../../Zustand/LoginZustand";
 
 const ProfileScreen = () => {
 
+    const Logout = useAuthStore((state) => state.logout)
+    const UserSession = useAuthStore((state) => state.UserSession)
     const navigator = useNavigation()
+
+    // const LogoutMethod = async () => {
+        
+    //     await Logout();
+    //     console.log("Usuario deslogueado: "+ UserSession)
+    //     navigator.replace("LoginSc")
+    // }
 
     return (
         <BaseScreen>
                 <SafeAreaView style={{
                     flex: 1,
-                    marginTop:15
+                    paddingTop:20
                 }}>
 
                     <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                         <Text className="text-2xl font-bold mx-8">Perfil</Text>
                         <View className="mt-1 mr-8">
-                            <Pressable onPress={() => navigator.navigate("LoginSc")}>
-                                <LogOutIcon />
+                            <Pressable>
+                                <EditProfile />
                             </Pressable>
                         </View>
                     </View>
@@ -33,8 +43,8 @@ const ProfileScreen = () => {
 
                     <View className="items-center mt-7">
                         <View className="bg-transparent p-5 rounded-md border-collectorLightGreen border-2 w-36">
-                            <Pressable>
-                                <Text className="text-center text-black font-bold border-gray-400 border-solid">Editar perfil</Text>
+                            <Pressable >
+                                <Text className="text-center text-black font-bold border-gray-400 border-solid">Cerrar sesion</Text>
                             </Pressable>
                         </View>
                     </View>

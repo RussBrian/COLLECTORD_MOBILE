@@ -18,7 +18,6 @@ const MainScreen = () => {
     const ref = useRef(null);
     useScrollToTop(ref)
 
-
     function RedenerizeVolunnteers() {
         const volunteersData = GetAllVolunteers()
         setVolunteers(volunteersData)

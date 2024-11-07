@@ -6,7 +6,6 @@ export const BookIcon = (props) => {
     return <AntDesign name="book" size={24} color="black" {...props} />;
 };
 
-
 export const ArrowBack = (props) => {
     return <AntDesign name="arrowleft" size={24} color="black" {...props}/>
 }
@@ -31,6 +30,6 @@ export const ArrowDown = (props) =>  {
     return <AntDesign name="arrowdown" size={28} color="black" {...props}/>
 }
 
-export const LogOutIcon = (props) => {
-    return <MaterialCommunityIcons name="logout" size={28} color="black"{...props}/>
+export const EditProfile = (props) => {
+    return<MaterialCommunityIcons name="pencil" size={28} color="black" {...props}/>
 }

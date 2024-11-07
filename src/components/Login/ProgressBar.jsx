@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import * as Progress from 'react-native-progress';
 
 
-const ProgessBar = ({preogression}) => {
+const ProgessBar = ({Progression}) => {
     const [pregress , setProgress] = useState('');
 
     useEffect(() => {
         setProgress(pregress)
-    },[preogression])
+    },[Progression])
     
     return (
-        <Progress.Bar progress={preogression} 
+        <Progress.Bar progress={Progression} 
         width={300}
         color="green" 
         animated={true} 
